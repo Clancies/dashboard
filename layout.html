@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="stylesheet/css/all.css">
+    <title>dashboard</title>
+</head>
+
+<body>
+    <div class="d-flex">
+        <!-- 側欄 -->
+        <aside class="sidebar vh-100 border-end d-flex bg-white flex-column pt-3">
+            <!-- 後台名稱 -->
+            <div class="px-4">
+                <strong>Buddy House</strong> 後台管理
+            </div>
+            <!-- 選單 -->
+            <div class="overflow-auto mt-3">
+                <div>
+                    <a href="#" class="sidebar-link active">
+                        <div class="px-4">
+                            <i class="bi bi-house"></i>首頁
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a href="#menu-order" class="sidebar-link" data-bs-toggle="collapse">
+                        <div class="d-flex justify-content-between px-4">
+                            <p class="mb-0">訂單管理</p>
+                            <i class="bi bi-caret-down"></i>
+                        </div>
+                    </a>
+                    <div class="collapse" id="menu-order">
+                        <a href="orders.html" class="sidebar-link">
+                            <div class="ps-5">
+                                訂單列表
+                            </div>
+                        </a>
+                        <a href="order.html" class="sidebar-link">
+                            <div class="ps-5">
+                                詳細訂單
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 登出 -->
+            <a href="#" class="mt-auto sidebar-link">
+                <div class="px-4">登出</div>
+            </a>
+        </aside>
+        <main class="main">
+            <!-- 導覽列 -->
+            <div class="w-100 sticky-top">
+                <a href="#" class="py-3 px-4 d-inline-block" id="toggle-btn">
+                    <i class="bi bi-list fs-1"></i>
+                </a>
+            </div>
+            <!-- 主要內容 -->
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </main>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script src="javascripts/all.js"></script>
+</body>
+
+</html>
