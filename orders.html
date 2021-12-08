@@ -16,12 +16,13 @@
         <aside class="sidebar vh-100 border-end d-flex flex-column pt-3">
             <!-- 後台名稱 -->
             <div class="px-4">
+                <i class="bi bi-bootstrap"></i>
                 <strong>Buddy House</strong> 後台管理
             </div>
             <!-- 選單 -->
             <div class="overflow-auto mt-3">
                 <div>
-                    <a href="home.html" class="sidebar-link active">
+                    <a href="index.html" class="sidebar-link active">
                         <div class="px-4">
                             <i class="bi bi-house"></i> 首頁
                         </div>
@@ -63,133 +64,711 @@
             <!-- 主要內容 -->
             <div class="p-4">
                 <!-- 頁籤 -->
-                <ul class="nav nav-pills mb-4">
-                    <li class="nav-item">
-                        <a class="nav-link rounded-pill active" aria-current="page" href="#">所有訂單
-                            <span class="badge rounded-pill bg-light text-dark">999</span>
-                        </a>
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link rounded-pill active" id="pills-all-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all"
+                            aria-selected="true">所有訂單
+                            <span class="badge rounded-pill bg-light text-dark">20</span></button>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link rounded-pill" href="#">待處理
-                            <span class="badge rounded-pill bg-light text-dark">88</span>
-                        </a>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link rounded-pill" id="pills-order-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-order" type="button" role="tab" aria-controls="pills-order"
+                            aria-selected="false">待處理
+                            <span class="badge rounded-pill bg-light text-dark">10</span></button>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link rounded-pill" href="#">已出貨
-                            <span class="badge rounded-pill bg-light text-dark">77</span>
-                        </a>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link rounded-pill" id="pills-cook-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-cook" type="button" role="tab" aria-controls="pills-cook"
+                            aria-selected="false">已出餐
+                            <span class="badge rounded-pill bg-light text-dark">3</span></button>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link rounded-pill" href="#" tabindex="-1" aria-disabled="true">退款
-                            <span class="badge rounded-pill bg-light text-dark">6</span>
-                        </a>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link rounded-pill" id="pills-pay-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-pay" type="button" role="tab" aria-controls="pills-pay"
+                            aria-selected="false">已付款
+                            <span class="badge rounded-pill bg-light text-dark">2</span></button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link rounded-pill" id="pills-cancel-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-cancel" type="button" role="tab" aria-controls="pills-cancel"
+                            aria-selected="false">已取消
+                            <span class="badge rounded-pill bg-light text-dark">5</span></button>
                     </li>
                 </ul>
                 <!-- 訂單內容 -->
-                <div class="card shadow-sm">
-                    <div class="card-header bg-transparent">
-                        <div class="input-group">
-                            <span class="input-group-text border-0 bg-transparent pe-0">
-                                <i class="bi bi-search"></i>
-                            </span>
-                            <input type="search" class="form-control border-0 shadow-none" placeholder="搜尋">
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-all" role="tabpanel"
+                        aria-labelledby="pills-all-tab">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-transparent">
+                                <div class="input-group">
+                                    <span class="input-group-text border-0 bg-transparent pe-0">
+                                        <i class="bi bi-search"></i>
+                                    </span>
+                                    <input type="search" class="form-control border-0 shadow-none" placeholder="搜尋">
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive text-secondary">
+                                    <table class="table table-hover mb-0">
+                                        <thead>
+                                            <tr class="align-middle">
+                                                <th scope="col" class="py-3 ps-4
+                                            ">訂單編號</th>
+                                                <th scope="col">電子信箱</th>
+                                                <th scope="col">用戶姓名</th>
+                                                <th scope="col">購買品項</th>
+                                                <th scope="col">狀態</th>
+                                                <th scope="col">購買金額</th>
+                                                <th scope="col" class="pe-4">編輯</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-nowrap">
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567890</td>
+                                                <td>a1234555@gmail.com</td>
+                                                <td>阿通伯</td>
+                                                <td>全家餐</td>
+                                                <td class="text-success">已付款</td>
+                                                <td>870</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567891</td>
+                                                <td>Loremdolorsit@hotmail.com</td>
+                                                <td>阿土伯</td>
+                                                <td>一號餐</td>
+                                                <td class="text-danger">已取消</td>
+                                                <td>560</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567892</td>
+                                                <td>doloritamet@gmail.com</td>
+                                                <td>Mark</td>
+                                                <td>單身披薩</td>
+                                                <td class="text-success">已付款</td>
+                                                <td>250</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567893</td>
+                                                <td>8877ggyy@icloud.com</td>
+                                                <td>康是美</td>
+                                                <td>派對同樂餐</td>
+                                                <td>待處理</td>
+                                                <td>980</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567894</td>
+                                                <td>Aliasearum!@yahoo.com</td>
+                                                <td>恐流</td>
+                                                <td>魷魚餐</td>
+                                                <td>待處理</td>
+                                                <td>456</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567895</td>
+                                                <td>sorryyouth@yahoo.com.tw</td>
+                                                <td>拍謝少年</td>
+                                                <td>虱目魚餐</td>
+                                                <td class="text-info">已出餐</td>
+                                                <td>456</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567896</td>
+                                                <td>tizzybac@gmail.com</td>
+                                                <td>會停</td>
+                                                <td>我不怕惡魔餐</td>
+                                                <td>待處理</td>
+                                                <td>666</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567897</td>
+                                                <td>sunsetrollercoaster@yahoo.com</td>
+                                                <td>曾國宏</td>
+                                                <td>飛車餐</td>
+                                                <td class="text-danger">已取消</td>
+                                                <td>690</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567898</td>
+                                                <td>xenyxq502usb@mixer.com</td>
+                                                <td>拍謝鬧女</td>
+                                                <td>夜市餐</td>
+                                                <td>待處理</td>
+                                                <td>120</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567899</td>
+                                                <td>#%$#^&%&*%*&%@yahoo.com</td>
+                                                <td>石玫瑰</td>
+                                                <td>愛與麵包</td>
+                                                <td class="text-danger">已取消</td>
+                                                <td>220</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567900</td>
+                                                <td>^%*&^)((@yahoo.com</td>
+                                                <td>想不到了</td>
+                                                <td>真的</td>
+                                                <td class="text-danger">已取消</td>
+                                                <td>220</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567901</td>
+                                                <td>GIUGIUJJNBK@yahoo.com</td>
+                                                <td>好累</td>
+                                                <td>腦力用盡</td>
+                                                <td class="text-danger">已取消</td>
+                                                <td>456</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567902</td>
+                                                <td>CNVBKJHII@yahoo.com</td>
+                                                <td>怎麼還有</td>
+                                                <td>ＯＲＺ</td>
+                                                <td class="text-info">已出餐</td>
+                                                <td>456</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567903</td>
+                                                <td>*)(JJOKO@yahoo.com</td>
+                                                <td>快了</td>
+                                                <td>耶</td>
+                                                <td>待處理</td>
+                                                <td>666</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567904</td>
+                                                <td>&^(*@yahoo.com</td>
+                                                <td>耶</td>
+                                                <td>結束</td>
+                                                <td>待處理</td>
+                                                <td>220</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent py-3">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination justify-content-end mb-0">
+                                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
                         </div>
                     </div>
-                    <div class="card-body p-0">
-                        <div class="table-responsive">
-                            <table class="table table-hover mb-0">
-                                <thead>
-                                    <tr class="align-middle">
-                                        <th scope="col" class="py-3 ps-4
-                                        ">訂單編號</th>
-                                        <th scope="col">電子信箱</th>
-                                        <th scope="col">用戶姓名</th>
-                                        <th scope="col">購買品項</th>
-                                        <th scope="col">付款狀態</th>
-                                        <th scope="col">購買金額</th>
-                                        <th scope="col" class="pe-4">編輯</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="text-nowrap">
-                                    <tr class="text-secondary">
-                                        <td scope="row" class="ps-4">TX1234567890</td>
-                                        <td>a1234555@gmail.com</td>
-                                        <td>阿通伯</td>
-                                        <td>全家餐</td>
-                                        <td>尚未付款</td>
-                                        <td>870</td>
-                                        <td>
-                                            <a href="#" class="btn btn-sm btn-outline-secondary me-2">
-                                                <i class="bi bi-pen"></i>編輯
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr class="text-secondary">
-                                        <td scope="row" class="ps-4">TX1234567890</td>
-                                        <td>a1234555@gmail.com</td>
-                                        <td>阿通伯</td>
-                                        <td>全家餐</td>
-                                        <td>尚未付款</td>
-                                        <td>870</td>
-                                        <td>
-                                            <a href="#" class="btn btn-sm btn-outline-secondary me-2">
-                                                <i class="bi bi-pen"></i>編輯
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr class="text-secondary">
-                                        <td scope="row" class="ps-4">TX1234567890</td>
-                                        <td>a1234555@gmail.com</td>
-                                        <td>阿通伯</td>
-                                        <td>全家餐</td>
-                                        <td>尚未付款</td>
-                                        <td>870</td>
-                                        <td>
-                                            <a href="#" class="btn btn-sm btn-outline-secondary me-2">
-                                                <i class="bi bi-pen"></i>編輯
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr class="text-secondary">
-                                        <td scope="row" class="ps-4">TX1234567890</td>
-                                        <td>a1234555@gmail.com</td>
-                                        <td>阿通伯</td>
-                                        <td>全家餐</td>
-                                        <td>尚未付款</td>
-                                        <td>870</td>
-                                        <td>
-                                            <a href="#" class="btn btn-sm btn-outline-secondary me-2">
-                                                <i class="bi bi-pen"></i>編輯
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr class="text-secondary">
-                                        <td scope="row" class="ps-4">TX1234567890</td>
-                                        <td>a1234555@gmail.com</td>
-                                        <td>阿通伯</td>
-                                        <td>全家餐</td>
-                                        <td>尚未付款</td>
-                                        <td>870</td>
-                                        <td>
-                                            <a href="#" class="btn btn-sm btn-outline-secondary me-2">
-                                                <i class="bi bi-pen"></i>編輯
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <div class="tab-pane fade" id="pills-order" role="tabpanel" aria-labelledby="pills-order-tab">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-transparent">
+                                <div class="input-group">
+                                    <span class="input-group-text border-0 bg-transparent pe-0">
+                                        <i class="bi bi-search"></i>
+                                    </span>
+                                    <input type="search" class="form-control border-0 shadow-none" placeholder="搜尋">
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive text-secondary">
+                                    <table class="table table-hover mb-0">
+                                        <thead>
+                                            <tr class="align-middle">
+                                                <th scope="col" class="py-3 ps-4
+                                            ">訂單編號</th>
+                                                <th scope="col">電子信箱</th>
+                                                <th scope="col">用戶姓名</th>
+                                                <th scope="col">購買品項</th>
+                                                <th scope="col">狀態</th>
+                                                <th scope="col">購買金額</th>
+                                                <th scope="col" class="pe-4">編輯</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-nowrap">
+
+
+
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567893</td>
+                                                <td>8877ggyy@icloud.com</td>
+                                                <td>康是美</td>
+                                                <td>派對同樂餐</td>
+                                                <td>待處理</td>
+                                                <td>980</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567894</td>
+                                                <td>Aliasearum!@yahoo.com</td>
+                                                <td>恐流</td>
+                                                <td>魷魚餐</td>
+                                                <td>待處理</td>
+                                                <td>456</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567896</td>
+                                                <td>tizzybac@gmail.com</td>
+                                                <td>會停</td>
+                                                <td>我不怕惡魔餐</td>
+                                                <td>待處理</td>
+                                                <td>666</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567898</td>
+                                                <td>xenyxq502usb@mixer.com</td>
+                                                <td>拍謝鬧女</td>
+                                                <td>夜市餐</td>
+                                                <td>待處理</td>
+                                                <td>120</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567903</td>
+                                                <td>*)(JJOKO@yahoo.com</td>
+                                                <td>快了</td>
+                                                <td>耶</td>
+                                                <td>待處理</td>
+                                                <td>666</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567904</td>
+                                                <td>&^(*@yahoo.com</td>
+                                                <td>耶</td>
+                                                <td>結束</td>
+                                                <td>待處理</td>
+                                                <td>220</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567905</td>
+                                                <td>&^(*@yahoo.com</td>
+                                                <td>耶</td>
+                                                <td>結束</td>
+                                                <td>待處理</td>
+                                                <td>220</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567905</td>
+                                                <td>&^(*@yahoo.com</td>
+                                                <td>耶</td>
+                                                <td>結束</td>
+                                                <td>待處理</td>
+                                                <td>220</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567906</td>
+                                                <td>&^(*@yahoo.com</td>
+                                                <td>耶</td>
+                                                <td>結束</td>
+                                                <td>待處理</td>
+                                                <td>220</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567907</td>
+                                                <td>&^(*@yahoo.com</td>
+                                                <td>耶</td>
+                                                <td>結束</td>
+                                                <td>待處理</td>
+                                                <td>220</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent py-3">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination justify-content-end mb-0">
+                                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
                         </div>
                     </div>
-                    <div class="card-footer bg-transparent py-3">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-end mb-0">
-                              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                              <li class="page-item"><a class="page-link" href="#">1</a></li>
-                              <li class="page-item"><a class="page-link" href="#">2</a></li>
-                              <li class="page-item"><a class="page-link" href="#">3</a></li>
-                              <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                            </ul>
-                          </nav>
+                    <div class="tab-pane fade" id="pills-cook" role="tabpanel" aria-labelledby="pills-cook-tab">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-transparent">
+                                <div class="input-group">
+                                    <span class="input-group-text border-0 bg-transparent pe-0">
+                                        <i class="bi bi-search"></i>
+                                    </span>
+                                    <input type="search" class="form-control border-0 shadow-none" placeholder="搜尋">
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive text-secondary">
+                                    <table class="table table-hover mb-0">
+                                        <thead>
+                                            <tr class="align-middle">
+                                                <th scope="col" class="py-3 ps-4
+                                            ">訂單編號</th>
+                                                <th scope="col">電子信箱</th>
+                                                <th scope="col">用戶姓名</th>
+                                                <th scope="col">購買品項</th>
+                                                <th scope="col">狀態</th>
+                                                <th scope="col">購買金額</th>
+                                                <th scope="col" class="pe-4">編輯</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-nowrap">
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567895</td>
+                                                <td>sorryyouth@yahoo.com.tw</td>
+                                                <td>拍謝少年</td>
+                                                <td>虱目魚餐</td>
+                                                <td class="text-info">已出餐</td>
+                                                <td>456</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567902</td>
+                                                <td>CNVBKJHII@yahoo.com</td>
+                                                <td>怎麼還有</td>
+                                                <td>ＯＲＺ</td>
+                                                <td class="text-info">已出餐</td>
+                                                <td>456</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567908</td>
+                                                <td>CNVBKJHII@yahoo.com</td>
+                                                <td>怎麼還有</td>
+                                                <td>ＯＲＺ</td>
+                                                <td class="text-info">已出餐</td>
+                                                <td>456</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent py-3">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination justify-content-end mb-0">
+                                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-pay" role="tabpanel" aria-labelledby="pills-pay-tab">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-transparent">
+                                <div class="input-group">
+                                    <span class="input-group-text border-0 bg-transparent pe-0">
+                                        <i class="bi bi-search"></i>
+                                    </span>
+                                    <input type="search" class="form-control border-0 shadow-none" placeholder="搜尋">
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive text-secondary">
+                                    <table class="table table-hover mb-0">
+                                        <thead>
+                                            <tr class="align-middle">
+                                                <th scope="col" class="py-3 ps-4
+                                            ">訂單編號</th>
+                                                <th scope="col">電子信箱</th>
+                                                <th scope="col">用戶姓名</th>
+                                                <th scope="col">購買品項</th>
+                                                <th scope="col">狀態</th>
+                                                <th scope="col">購買金額</th>
+                                                <th scope="col" class="pe-4">編輯</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-nowrap">
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567890</td>
+                                                <td>a1234555@gmail.com</td>
+                                                <td>阿通伯</td>
+                                                <td>全家餐</td>
+                                                <td class="text-success">已付款</td>
+                                                <td>870</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567892</td>
+                                                <td>doloritamet@gmail.com</td>
+                                                <td>Mark</td>
+                                                <td>單身披薩</td>
+                                                <td class="text-success">已付款</td>
+                                                <td>250</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent py-3">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination justify-content-end mb-0">
+                                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-cancel" role="tabpanel" aria-labelledby="pills-cancel-tab">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-transparent">
+                                <div class="input-group">
+                                    <span class="input-group-text border-0 bg-transparent pe-0">
+                                        <i class="bi bi-search"></i>
+                                    </span>
+                                    <input type="search" class="form-control border-0 shadow-none" placeholder="搜尋">
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive text-secondary">
+                                    <table class="table table-hover mb-0">
+                                        <thead>
+                                            <tr class="align-middle">
+                                                <th scope="col" class="py-3 ps-4
+                                            ">訂單編號</th>
+                                                <th scope="col">電子信箱</th>
+                                                <th scope="col">用戶姓名</th>
+                                                <th scope="col">購買品項</th>
+                                                <th scope="col">狀態</th>
+                                                <th scope="col">購買金額</th>
+                                                <th scope="col" class="pe-4">編輯</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-nowrap">
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567891</td>
+                                                <td>Loremdolorsit@hotmail.com</td>
+                                                <td>阿土伯</td>
+                                                <td>一號餐</td>
+                                                <td class="text-danger">已取消</td>
+                                                <td>560</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567897</td>
+                                                <td>sunsetrollercoaster@yahoo.com</td>
+                                                <td>曾國宏</td>
+                                                <td>飛車餐</td>
+                                                <td class="text-danger">已取消</td>
+                                                <td>690</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567899</td>
+                                                <td>#%$#^&%&*%*&%@yahoo.com</td>
+                                                <td>石玫瑰</td>
+                                                <td>愛與麵包</td>
+                                                <td class="text-danger">已取消</td>
+                                                <td>220</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567900</td>
+                                                <td>^%*&^)((@yahoo.com</td>
+                                                <td>想不到了</td>
+                                                <td>真的</td>
+                                                <td class="text-danger">已取消</td>
+                                                <td>220</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-secondary">
+                                                <td scope="row" class="ps-4">BH1234567901</td>
+                                                <td>GIUGIUJJNBK@yahoo.com</td>
+                                                <td>好累</td>
+                                                <td>腦力用盡</td>
+                                                <td class="text-danger">已取消</td>
+                                                <td>456</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary me-2">
+                                                        <i class="bi bi-pen"></i>編輯
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent py-3">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination justify-content-end mb-0">
+                                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
