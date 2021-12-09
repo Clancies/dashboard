@@ -1478,9 +1478,9 @@ $progress-bar-transition:           width .6s ease !default;
 // scss-docs-start list-group-variables
 $list-group-color:                  $primary;//$gray-900 !default;
 $list-group-bg:                     $dark;//$white !default;
-$list-group-border-color:           rgba($black, .125) !default;
+$list-group-border-color:           $secondary;//rgba($black, .125) !default;
 $list-group-border-width:           $border-width !default;
-$list-group-border-radius:          $border-radius !default;
+$list-group-border-radius:          $border-radius-lg !default;
 
 $list-group-item-padding-y:         $spacer * .5 !default;
 $list-group-item-padding-x:         $spacer !default;
